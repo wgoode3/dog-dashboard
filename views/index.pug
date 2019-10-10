@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Document
+        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+    body
+        .container
+            .jumbotron
+                h1 Dogs
+
+            table.table.table-striped
+                tr
+                    th Name
+                    th Breed
+                    th Color
+                    th Age
+                each dog in dogs
+                    tr
+                        td 
+                            a(href="/dog/" + dog._id) #{dog.name}
+                        td= dog.breed
+                        td= dog.color
+                        td= dog.age
+
+            form(action="/create" method="post")
+                .row
+                    .col-sm-6
+                        .form-group
+                            label Name
+                            input(type="text" name="name").form-control
+                    .col-sm-6
+                        .form-group
+                            label Breed
+                            input(type="text" name="breed").form-control
+                    .col-sm-6
+                        .form-group
+                            label Color
+                            input(type="text" name="color").form-control
+                    .col-sm-6
+                        .form-group
+                            label Age
+                            input(type="number" name="age").form-control
+                button(type=submit).btn.btn-primary Submit
